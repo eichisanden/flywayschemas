@@ -1,5 +1,7 @@
 # flyway-schemas
 
+[![Build Status](https://travis-ci.org/flyway-schemas/flyway-schemas.svg?branch=master)](https://travis-ci.org/flyway-schemas/flyway-schemas)
+
 This is gradle plugin for using regular-expression on flyway.schemas parameter.
 
 ## Usage
