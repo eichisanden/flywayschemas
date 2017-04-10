@@ -1,13 +1,12 @@
-package com.github.flywaySchemas.tasks
+package org.flywaydb.gradle.task
 
 import com.github.flywaySchemas.FlywaySchemasPlugin
 import org.flywaydb.core.Flyway
-import org.flywaydb.gradle.task.AbstractFlywayTask
 
-class FlywayCleanTask extends AbstractFlywayTask {
+class MyFlywayBaselineTask extends AbstractFlywayTask {
 
-    FlywayCleanTask() {
-        description = 'Drops all objects in the configured schemas.'
+    MyFlywayBaselineTask() {
+        description = 'Baselines an existing database, excluding all migrations up to and including baselineVersion.'
     }
 
     @Override
@@ -15,7 +14,7 @@ class FlywayCleanTask extends AbstractFlywayTask {
         FlywaySchemasPlugin.getSchemas(flyway).each { def schema ->
             println "<${schema}>"
             flyway.setSchemas(schema)
-            flyway.clean()
+            flyway.baseline()
         }
     }
 }

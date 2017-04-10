@@ -1,13 +1,12 @@
-package com.github.flywaySchemas.tasks
+package org.flywaydb.gradle.task
 
 import com.github.flywaySchemas.FlywaySchemasPlugin
 import org.flywaydb.core.Flyway
-import org.flywaydb.gradle.task.AbstractFlywayTask
 
-class FlywayRepairTask extends AbstractFlywayTask {
+class MyFlywayCleanTask extends AbstractFlywayTask {
 
-    FlywayRepairTask() {
-        description = 'Repairs the Flyway metadata table.'
+    MyFlywayCleanTask() {
+        description = 'Drops all objects in the configured schemas.'
     }
 
     @Override
@@ -15,7 +14,7 @@ class FlywayRepairTask extends AbstractFlywayTask {
         FlywaySchemasPlugin.getSchemas(flyway).each { def schema ->
             println "<${schema}>"
             flyway.setSchemas(schema)
-            flyway.repair()
+            flyway.clean()
         }
     }
 }

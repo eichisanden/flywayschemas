@@ -1,11 +1,11 @@
 package com.github.flywaySchemas
 
-import com.github.flywaySchemas.tasks.FlywayMigrateTask
-import com.github.flywaySchemas.tasks.FlywayRepairTask
-import com.github.flywaySchemas.tasks.FlywayBaselineTask
-import com.github.flywaySchemas.tasks.FlywayCleanTask
-import com.github.flywaySchemas.tasks.FlywayInfoTask
-import com.github.flywaySchemas.tasks.FlywayValidateTask
+import org.flywaydb.gradle.task.MyFlywayMigrateTask
+import org.flywaydb.gradle.task.MyFlywayRepairTask
+import org.flywaydb.gradle.task.MyFlywayBaselineTask
+import org.flywaydb.gradle.task.MyFlywayCleanTask
+import org.flywaydb.gradle.task.MyFlywayInfoTask
+import org.flywaydb.gradle.task.MyFlywayValidateTask
 import groovy.sql.Sql
 import org.flywaydb.gradle.FlywayExtension
 import org.gradle.api.Plugin
@@ -16,16 +16,16 @@ class FlywaySchemasPlugin implements Plugin<Project> {
 
     @Override
     void apply(Project project) {
-        project.extensions.create("flyway", FlywayExtension);
-        project.tasks.create("flywayClean", FlywayCleanTask)
-        project.tasks.create("flywayBaseline", FlywayBaselineTask)
-        project.tasks.create("flywayMigrate", FlywayMigrateTask)
-        project.tasks.create("flywayValidate", FlywayValidateTask)
-        project.tasks.create("flywayInfo", FlywayInfoTask)
-        project.tasks.create("flywayRepair", FlywayRepairTask)
+        project.extensions.create("flyway", FlywayExtension)
+        project.tasks.create("flywayClean", MyFlywayCleanTask)
+        project.tasks.create("flywayBaseline", MyFlywayBaselineTask)
+        project.tasks.create("flywayMigrate", MyFlywayMigrateTask)
+        project.tasks.create("flywayValidate", MyFlywayValidateTask)
+        project.tasks.create("flywayInfo", MyFlywayInfoTask)
+        project.tasks.create("flywayRepair", MyFlywayRepairTask)
     }
 
-    public static List<String> getSchemas(Flyway flyway) {
+    static List<String> getSchemas(Flyway flyway) {
         def db = Sql.newInstance(flyway.getDataSource())
         def arr = []
         if (flyway.schemas.size() > 0) {
