@@ -13,7 +13,7 @@ class MyFlywayValidateTask extends AbstractFlywayTask {
     run(Flyway flyway) {
         FlywaySchemasPlugin.getSchemas(flyway).each { schema ->
             println "<${schema}>"
-            flyway.setSchemas(schema)
+            Flyway.configure().schemas(schema)
             flyway.validate()
         }
     }

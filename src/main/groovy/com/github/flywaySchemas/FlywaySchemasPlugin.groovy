@@ -26,10 +26,10 @@ class FlywaySchemasPlugin implements Plugin<Project> {
     }
 
     static List<String> getSchemas(Flyway flyway) {
-        def db = Sql.newInstance(flyway.getDataSource())
+        def db = Sql.newInstance Flyway.configure().dataSource
         def arr = []
-        if (flyway.schemas.size() > 0) {
-            db.eachRow("SELECT nspname FROM pg_namespace WHERE nspname ~* ? AND nspname != 'information_schema'", [flyway.schemas[0]]) {
+        if (Flyway.configure().schemas.size() > 0) {
+            db.eachRow("SELECT nspname FROM pg_namespace WHERE nspname ~* ? AND nspname != 'information_schema'", [Flyway.configure().schemas[0]]) {
                 arr.add((it."nspname"))
             }
         }

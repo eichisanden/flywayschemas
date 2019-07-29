@@ -14,7 +14,7 @@ class MyFlywayInfoTask extends AbstractFlywayTask {
     run(Flyway flyway) {
         FlywaySchemasPlugin.getSchemas(flyway).each { def schema ->
             println "<${schema}>"
-            flyway.setSchemas(schema)
+            Flyway.configure().schemas(schema)
             println MigrationInfoDumper.dumpToAsciiTable(flyway.info().all())
         }
     }
