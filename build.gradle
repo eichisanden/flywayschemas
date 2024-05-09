@@ -10,7 +10,7 @@ dependencies {
     compile "org.flywaydb:flyway-core:5.2.4"
     compile "org.flywaydb:flyway-gradle-plugin:5.2.4"
     // http://mvnrepository.com/artifact/postgresql/postgresql
-    compile group: 'postgresql', name: 'postgresql', version: '9.1-901.jdbc4'
+    compile group: 'postgresql', name: 'postgresql', version: '9.4.1208-jdbc42-atlassian-hosted'
     testCompile('org.spockframework:spock-core:1.0-groovy-2.4') {
         exclude module: 'groovy-all'
     }
