@@ -11,7 +11,7 @@ dependencies {
     compile "org.flywaydb:flyway-gradle-plugin:5.2.4"
     // http://mvnrepository.com/artifact/postgresql/postgresql
     compile group: 'postgresql', name: 'postgresql', version: '9.1-901.jdbc4'
-    testCompile('org.spockframework:spock-core:1.0-groovy-2.4') {
+    testCompile('org.spockframework:spock-core:2.3-groovy-4.0') {
         exclude module: 'groovy-all'
     }
     testCompile 'cglib:cglib-nodep:3.1'
