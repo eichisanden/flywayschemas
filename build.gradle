@@ -14,7 +14,7 @@ dependencies {
     testCompile('org.spockframework:spock-core:1.0-groovy-2.4') {
         exclude module: 'groovy-all'
     }
-    testCompile 'cglib:cglib-nodep:3.1'
+    testCompile 'cglib:cglib-nodep:3.3.0'
     testCompile group: 'org.apache.ivy', name: 'ivy', version: '2.1.0'
 }
 
