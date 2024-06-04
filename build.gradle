@@ -7,7 +7,7 @@ repositories {
 dependencies {
     compile gradleApi()
     compile localGroovy()
-    compile "org.flywaydb:flyway-core:5.2.4"
+    compile "org.flywaydb:flyway-core:10.14.0"
     compile "org.flywaydb:flyway-gradle-plugin:5.2.4"
     // http://mvnrepository.com/artifact/postgresql/postgresql
     compile group: 'postgresql', name: 'postgresql', version: '9.1-901.jdbc4'
